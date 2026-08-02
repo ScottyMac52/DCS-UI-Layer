@@ -42,7 +42,7 @@ const anchors = new Map(Object.entries({
   JOY_BTN24: [728, 604],
   JOY_BTN25: [179, 604],
   JOY_BTN26: [179, 570],
-  JOY_BTN27: [179, 172],
+  JOY_BTN27: [172, 150],
 }).map(([key, point]) => [key, mfdPoint(point)]));
 
 const leftKeys = new Set(['JOY_BTN1', 'JOY_BTN18', 'JOY_BTN25', 'JOY_BTN26', 'JOY_BTN27']);
