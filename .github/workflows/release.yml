@@ -27,6 +27,8 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          # Required so the workflow can push the regenerated kneeboard commit
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -72,6 +74,27 @@ jobs:
           $Notes = Get-Content packaging/release/RELEASE-NOTES.md -Raw
           New-Item .build -ItemType Directory -Force | Out-Null
           $Notes.Replace('{{VERSION}}', $env:PACKAGE_VERSION) | Set-Content .build/RELEASE-NOTES.md
+      - name: Commit regenerated kneeboard pages
+        shell: pwsh
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add kneeboard/source kneeboard/UiLayer
+
+          $status = git status --porcelain kneeboard/source kneeboard/UiLayer
+          if ([string]::IsNullOrWhiteSpace($status)) {
+            Write-Host "Kneeboard pages are already up to date; nothing to commit."
+            return
+          }
+
+          # [skip ci] prevents the push from triggering build.yml
+          git commit -m "chore: regenerate kneeboard pages for $env:RELEASE_TAG [skip ci]"
+          git push origin HEAD:main
+
+          $NewSha = git rev-parse HEAD
+          "RELEASE_SHA=$NewSha" >> $env:GITHUB_ENV
+          Write-Host "Pushed regenerated kneeboard pages as $NewSha"
       - uses: actions/upload-artifact@v4
         with:
           name: DCS-UI-Layer-Release-${{ steps.version.outputs.tag }}
