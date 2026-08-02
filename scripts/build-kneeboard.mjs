@@ -12,8 +12,11 @@ mkdirSync(svgDir, { recursive: true });
 mkdirSync(pngDir, { recursive: true });
 
 const escapeXml = (value) => String(value)
-  .replaceAll('&', '&').replaceAll('<', '<').replaceAll('>', '>')
-  .replaceAll('"', '"').replaceAll("'", ''');
+  .replaceAll('&', ['&','amp',';'].join(''))
+  .replaceAll('<', ['&','lt',';'].join(''))
+  .replaceAll('>', ['&','gt',';'].join(''))
+  .replaceAll('"', ['&','quot',';'].join(''))
+  .replaceAll("'", ['&','apos',';'].join(''));
 
 const mfdImage = { x: 360, y: 500, width: 480, height: 590, sourceSize: 900 };
 const renderedSize = Math.min(mfdImage.width, mfdImage.height);
