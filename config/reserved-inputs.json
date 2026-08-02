@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "device": {
+    "name": "F16 MFD 3",
+    "guid": "C5BE49A0-2342-11ee-8001-444553540000"
+  },
+  "acceptedModifierReuse": {
+    "enabled": true,
+    "decision": "Option 3",
+    "note": "Scott accepts that a modifier press may also invoke its aircraft-specific BTN7/S3 function."
+  },
+  "modifiers": [
+    {
+      "name": "VKB_F14_BTN7",
+      "device": " VKBSim Gunfighter F14   {2D5CEC70-5189-11f1-8001-444553540000}",
+      "key": "JOY_BTN7",
+      "status": "supported"
+    },
+    {
+      "name": "AVA_F16_S3",
+      "device": "Ava [R] Viper {F77212B0-00A8-11f1-8001-444553540000}",
+      "key": "JOY_BTN3",
+      "status": "supported"
+    },
+    {
+      "name": "AVA_F18_S3",
+      "device": null,
+      "key": null,
+      "status": "awaiting-current-export"
+    }
+  ],
+  "bindings": [
+    { "command": "d2604pnilu2604cdnilvd1vpnilvu0", "name": "toggle VR Zoom", "category": "VR", "key": "JOY_BTN1" },
+    { "command": "d2605pnilu2605cdnilvd1vpnilvu0", "name": "toggle VR Spyglass Zoom", "category": "VR", "key": "JOY_BTN2" },
+    { "command": "d816pnilunilcdnilvdnilvpnilvunil", "name": "Active Pause", "category": "General", "key": "JOY_BTN3" },
+    { "command": "d246pnilunilcdnilvdnilvpnilvunil", "name": "Time normal", "category": "General", "key": "JOY_BTN13" },
+    { "command": "d52pnilunilcdnilvdnilvpnilvunil", "name": "Pause", "category": "General", "key": "JOY_BTN18" },
+    { "command": "d2628pnilu2628cdnilvd1vpnilvu0", "name": "VR, right hand (enable/disable)", "category": "VR", "key": "JOY_BTN21" },
+    { "command": "d216pnilunilcdnilvdnilvpnilvunil", "name": "recenter VR Headset", "category": "VR", "key": "JOY_BTN24" },
+    { "command": "d53pnilunilcdnilvdnilvpnilvunil", "name": "Time accelerate", "category": "General", "key": "JOY_BTN25" },
+    { "command": "d191pnilunilcdnilvdnilvpnilvunil", "name": "Time decelerate", "category": "General", "key": "JOY_BTN26" },
+    { "command": "d2627pnilu2627cdnilvd1vpnilvu0", "name": "VR, left hand (enable/disable)", "category": "VR", "key": "JOY_BTN27" }
+  ]
+}
+
