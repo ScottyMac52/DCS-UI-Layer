@@ -15,9 +15,11 @@ assert.equal(metadata.height, 1600);
 assert.equal(manifest.bindings.length, 10);
 assert.deepEqual([...new Set(manifest.bindings.map(({ category }) => category))].sort(), ['General', 'VR']);
 for (const binding of manifest.bindings) {
-  assert.ok(svg.includes(binding.key.replace('JOY_', '')), `Missing ${binding.key} callout`);
+  assert.ok(svg.includes(binding.key.replace('JOY_BTN', 'BTN ')), `Missing ${binding.key} callout`);
   assert.ok(svg.includes(binding.name.replaceAll('&', '&amp;')), `Missing ${binding.name} callout`);
 }
 for (const modifier of ['VKB F-14 BTN7', 'AVA F-16 GRIP S3']) assert.ok(svg.includes(modifier));
 assert.ok(svg.includes('OPTION 3'));
+assert.equal((svg.match(/<path d=/g) ?? []).length, manifest.bindings.length, 'Every binding must point to its MFD control');
+assert.ok(svg.includes('Rocker callouts identify the exact direction'));
 console.log('OpenKneeboard validation passed.');
