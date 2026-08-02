@@ -15,20 +15,32 @@ const escapeXml = (value) => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&apos;');
 
-// These coordinates match the numbered Cougar MFD layout used by the F-16 and
-// F-14 kneeboard pages. Rocker anchors identify the individual up/down switch.
-const anchors = new Map([
-  ['JOY_BTN1', [430, 555]],
-  ['JOY_BTN2', [505, 555]],
-  ['JOY_BTN3', [580, 555]],
-  ['JOY_BTN13', [580, 1030]],
-  ['JOY_BTN18', [395, 780]],
-  ['JOY_BTN21', [820, 615]],
-  ['JOY_BTN24', [820, 1005]],
-  ['JOY_BTN25', [380, 1005]],
-  ['JOY_BTN26', [380, 960]],
-  ['JOY_BTN27', [380, 660]],
-]);
+const mfdImage = { x: 360, y: 500, width: 480, height: 590, sourceSize: 900 };
+const renderedSize = Math.min(mfdImage.width, mfdImage.height);
+const renderedOrigin = [
+  mfdImage.x + (mfdImage.width - renderedSize) / 2,
+  mfdImage.y + (mfdImage.height - renderedSize) / 2,
+];
+const mfdPoint = ([sourceX, sourceY]) => [
+  renderedOrigin[0] + sourceX * renderedSize / mfdImage.sourceSize,
+  renderedOrigin[1] + sourceY * renderedSize / mfdImage.sourceSize,
+];
+
+// Control centers measured in the 900×900 source photograph. Using the same
+// preserveAspectRatio transform as the SVG image keeps every leader attached
+// directly to its OSB or to the selected half of a rocker.
+const anchors = new Map(Object.entries({
+  JOY_BTN1: [312, 99],
+  JOY_BTN2: [386, 99],
+  JOY_BTN3: [459, 99],
+  JOY_BTN13: [459, 667],
+  JOY_BTN18: [178, 377],
+  JOY_BTN21: [728, 143],
+  JOY_BTN24: [728, 604],
+  JOY_BTN25: [179, 604],
+  JOY_BTN26: [179, 570],
+  JOY_BTN27: [179, 172],
+}).map(([key, point]) => [key, mfdPoint(point)]));
 
 const leftKeys = new Set(['JOY_BTN1', 'JOY_BTN18', 'JOY_BTN25', 'JOY_BTN26', 'JOY_BTN27']);
 const callouts = manifest.bindings.map((binding) => ({
@@ -60,7 +72,7 @@ function drawCallout(entry, x, y) {
   const lines = wrap(entry.name);
   const textY = y + (cardHeight - (lines.length - 1) * 19) / 2 + 6;
   let result = `<g><title>${escapeXml(entry.name)}</title><path d="M ${lineX} ${y + cardHeight / 2} L ${anchorX} ${anchorY}" fill="none" stroke="${entry.accent}" stroke-width="2.5" opacity="0.9"/>`;
-  result += `<circle cx="${anchorX}" cy="${anchorY}" r="8" fill="#06101d" stroke="${entry.accent}" stroke-width="3"/>`;
+  result += `<circle data-control="${entry.key}" cx="${anchorX}" cy="${anchorY}" r="5" fill="none" stroke="${entry.accent}" stroke-width="2.5"/>`;
   result += `<rect x="${x}" y="${y}" width="${cardWidth}" height="${cardHeight}" rx="12" fill="#0d1b2b" stroke="${entry.accent}" stroke-width="2"/>`;
   result += `<rect x="${x + 9}" y="${y + 10}" width="82" height="${cardHeight - 20}" rx="8" fill="#06101d" stroke="${entry.accent}" stroke-width="1.5"/>`;
   result += `<text x="${x + 50}" y="${y + cardHeight / 2 + 1}" text-anchor="middle" dominant-baseline="middle" font-size="16" font-weight="800" fill="${entry.accent}">${label}</text>`;
@@ -86,7 +98,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   <text x="600" y="207" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffc95c">HOLD EITHER MODIFIER</text>
   <text x="600" y="245" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#f2f7ff">VKB F-14 BTN7  •  AVA F-16 GRIP S3</text>
   <rect x="348" y="310" width="504" height="910" rx="26" fill="#08121f" stroke="#1b334a" stroke-width="3"/>
-  <image x="360" y="500" width="480" height="590" preserveAspectRatio="xMidYMid meet" opacity="0.88" href="data:image/png;base64,${asset}"/>
+  <image x="${mfdImage.x}" y="${mfdImage.y}" width="${mfdImage.width}" height="${mfdImage.height}" preserveAspectRatio="xMidYMid meet" opacity="0.88" href="data:image/png;base64,${asset}"/>
   <g font-family="DejaVu Sans,Arial,sans-serif">${sideMarkup}</g>
   <rect x="70" y="1260" width="1060" height="126" rx="16" fill="#101f33" stroke="#ff6677" stroke-width="2"/>
   <text x="600" y="1300" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" font-weight="800" fill="#ff8f98">OPTION 3 • MODIFIER BUTTON RETAINS ITS AIRFRAME FUNCTION</text>

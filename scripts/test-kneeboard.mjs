@@ -17,6 +17,7 @@ assert.deepEqual([...new Set(manifest.bindings.map(({ category }) => category))]
 for (const binding of manifest.bindings) {
   assert.ok(svg.includes(binding.key.replace('JOY_BTN', 'BTN ')), `Missing ${binding.key} callout`);
   assert.ok(svg.includes(binding.name.replaceAll('&', '&amp;')), `Missing ${binding.name} callout`);
+  assert.ok(svg.includes(`data-control="${binding.key}"`), `Missing physical anchor for ${binding.key}`);
 }
 for (const modifier of ['VKB F-14 BTN7', 'AVA F-16 GRIP S3']) assert.ok(svg.includes(modifier));
 assert.ok(svg.includes('OPTION 3'));
