@@ -38,3 +38,6 @@ npm test
 
 Ordinary CI uses versions such as `0.0.0-ci.42`; local builds default to `0.0.0-local`. The tagged release workflow calculates the next semantic version and publishes assets built from that exact commit.
 
+## Shared kneeboard dependency
+
+Kneeboard generation consumes the anchor-aware renderer and canonical TM MFD image from a commit-pinned `ScottyMac52/DCS-Common` development dependency. The UI Layer configuration remains in `config/ui-layer-kneeboard.mjs`; update the pinned Git revision deliberately through npm, rebuild the page, and run the complete validation suite before accepting a newer shared renderer.

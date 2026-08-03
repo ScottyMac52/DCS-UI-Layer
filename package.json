@@ -12,6 +12,7 @@
     "test": "npm run test:versioning && npm run test:profile && npm run test:kneeboard"
   },
   "devDependencies": {
+    "dcs-common": "https://github.com/ScottyMac52/DCS-Common/archive/49c274cc7b2cb2ddcc6bc44929726b8e4ac94577.tar.gz",
     "luaparse": "^0.3.1",
     "sharp": "^0.34.5"
   }

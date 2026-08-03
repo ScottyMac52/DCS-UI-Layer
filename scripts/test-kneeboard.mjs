@@ -9,12 +9,16 @@ const manifest = JSON.parse(readFileSync(join(repoRoot, 'config/reserved-inputs.
 const svg = readFileSync(join(repoRoot, 'kneeboard/source/01-MFD3-UI-LAYER.svg'), 'utf8');
 const pngPath = join(repoRoot, 'kneeboard/UiLayer/01-MFD3-UI-LAYER.png');
 const metadata = await sharp(pngPath).metadata();
+const packageLock = readFileSync(join(repoRoot, 'package-lock.json'), 'utf8');
 
 // Time Accel (BTN25) + Time Decel (BTN26) are intentionally one combined rocker callout.
 const combinedRockerKeys = new Set(['JOY_BTN25', 'JOY_BTN26']);
 
 assert.equal(metadata.width, 1200);
 assert.equal(metadata.height, 1600);
+assert.ok(svg.includes('DCS-Common shared kneeboard renderer'));
+assert.ok(packageLock.includes('github.com/ScottyMac52/DCS-Common/archive/'));
+assert.ok(packageLock.includes('49c274cc7b2cb2ddcc6bc44929726b8e4ac94577'));
 assert.equal(manifest.bindings.length, 10);
 assert.deepEqual([...new Set(manifest.bindings.map(({ category }) => category))].sort(), ['General', 'VR']);
 
