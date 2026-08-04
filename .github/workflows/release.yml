@@ -42,6 +42,6 @@ jobs:
         $Notes = Get-Content packaging/release/RELEASE-NOTES.md -Raw
         New-Item .build -ItemType Directory -Force | Out-Null
         $Notes.Replace('{{VERSION}}', $env:PACKAGE_VERSION) | Set-Content .build/RELEASE-NOTES.md
-      kneeboard-paths: kneeboard/source kneeboard/UiLayer
+      kneeboard-paths: kneeboard/source kneeboard/global
       release-title-prefix: DCS UI Layer
     secrets: inherit
