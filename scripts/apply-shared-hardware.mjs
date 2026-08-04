@@ -11,13 +11,13 @@ const manifest = JSON.parse(readFileSync(join(root, 'config/reserved-inputs.json
 const labels = Array(28).fill('');
 for (const binding of manifest.bindings) {
   const button = Number(binding.key.replace('JOY_BTN', ''));
-  labels[button - 1] = `BTN ${button}: ${binding.name}`;
+  labels[button - 1] = binding.name;
 }
 const { svg } = renderSharedHardwarePage({
   deviceId: 'tm-mfd', labels, commonRoot,
   title: 'DCS UI LAYER • MFD 3',
   kicker: 'GENERAL + VR • HOLD VKB F-14 BTN7 OR AVA F-16 GRIP S3',
-  footer: 'DCS UI Layer • shared DCS-Common hardware template • 1 / 1',
+  provenance: { consumer: 'DCS-UI-Layer', page: '1 / 1' },
 });
 writeFileSync(join(root, 'kneeboard/source/01-MFD3-UI-LAYER.svg'), svg);
 await sharp(Buffer.from(svg)).png().toFile(join(root, 'kneeboard/global/01-MFD3-UI-LAYER.png'));
