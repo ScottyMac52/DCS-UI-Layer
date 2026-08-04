@@ -20,4 +20,4 @@ const { svg } = renderSharedHardwarePage({
   footer: 'DCS UI Layer • shared DCS-Common hardware template • 1 / 1',
 });
 writeFileSync(join(root, 'kneeboard/source/01-MFD3-UI-LAYER.svg'), svg);
-await sharp(Buffer.from(svg)).png().toFile(join(root, 'kneeboard/UiLayer/01-MFD3-UI-LAYER.png'));
+await sharp(Buffer.from(svg)).png().toFile(join(root, 'kneeboard/global/01-MFD3-UI-LAYER.png'));

@@ -9,7 +9,7 @@
 5. Enable the package.
 6. Start DCS and open Options → Controls → UI Layer.
 7. Confirm that MFD 3 shows the ten mappings and that both supported modifiers appear in the Modifiers dialog.
-8. Add `KNEEBOARD\UiLayer` as an OpenKneeboard Folder tab.
+8. Enter an aircraft and confirm the UI Layer reference appears in its standard kneeboard; repeat with a second aircraft to verify global visibility.
 
 The package replaces `Config\Input\UiLayer\modifiers.lua`. The current source preserves DCS's standard keyboard modifiers plus Scott's supported joystick modifiers. Back up this file before installation if other custom UI Layer modifiers have been added locally.
 
@@ -27,4 +27,3 @@ Test in at least two airframes:
 ## Removal
 
 Close DCS and disable the component in OvGME. Restore the backup only if the local UI Layer was changed after enabling the package.
-
