@@ -14,10 +14,10 @@ $Archive = Join-Path $Dist "$PackageName.zip"
 
 Remove-Item $BuildRoot -Recurse -Force -ErrorAction SilentlyContinue
 New-Item (Join-Path $Container 'Config/Input') -ItemType Directory -Force | Out-Null
-New-Item (Join-Path $Container 'KNEEBOARD/UiLayer') -ItemType Directory -Force | Out-Null
+New-Item (Join-Path $Container 'KNEEBOARD') -ItemType Directory -Force | Out-Null
 New-Item $Dist -ItemType Directory -Force | Out-Null
 Copy-Item (Join-Path $RepoRoot 'src/Config/Input/UiLayer') (Join-Path $Container 'Config/Input/UiLayer') -Recurse
-Copy-Item (Join-Path $RepoRoot 'kneeboard/UiLayer/*') (Join-Path $Container 'KNEEBOARD/UiLayer')
+Copy-Item (Join-Path $RepoRoot 'kneeboard/global/*') (Join-Path $Container 'KNEEBOARD')
 
 $Readme = Get-Content (Join-Path $RepoRoot 'packaging/ovgme/README.TXT') -Raw
 if (-not $Readme.Contains('{{VERSION}}')) { throw 'OvGME README is missing the version token.' }
@@ -29,4 +29,3 @@ Compress-Archive -Path $Container, (Join-Path $StageRoot 'README.TXT'), (Join-Pa
 $Hash = Get-FileHash $Archive -Algorithm SHA256
 "$($Hash.Hash.ToLowerInvariant())  $([IO.Path]::GetFileName($Archive))" | Set-Content (Join-Path $Dist 'SHA256SUMS.txt') -Encoding utf8
 Write-Host "Created $Archive"
-

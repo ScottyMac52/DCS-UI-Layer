@@ -11,7 +11,7 @@ The AVA + F/A-18 grip is intentionally not guessed. Its S3 variant will be added
 
 ## Design rules
 
-- The package writes only `Config\Input\UiLayer` and `KNEEBOARD\UiLayer`.
+- The package writes only `Config\Input\UiLayer` and the global `KNEEBOARD\01-MFD3-UI-LAYER.png` page.
 - Only General and VR commands from Scott's current export are shipped in the initial release. Kneeboard and F10 bindings remain future additions.
 - Every MFD 3 command requires exactly one supported modifier.
 - Option 3 is intentional: BTN7/S3 may remain assigned to aircraft controls. A modifier press can therefore also invoke NWS, A/R disconnect, missile step, or another aircraft-specific action.
@@ -37,4 +37,3 @@ npm test
 ```
 
 Ordinary CI uses versions such as `0.0.0-ci.42`; local builds default to `0.0.0-local`. The tagged release workflow calculates the next semantic version and publishes assets built from that exact commit.
-

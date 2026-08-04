@@ -7,7 +7,7 @@ import sharp from 'sharp';
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(readFileSync(join(repoRoot, 'config/reserved-inputs.json'), 'utf8'));
 const svg = readFileSync(join(repoRoot, 'kneeboard/source/01-MFD3-UI-LAYER.svg'), 'utf8');
-const pngPath = join(repoRoot, 'kneeboard/UiLayer/01-MFD3-UI-LAYER.png');
+const pngPath = join(repoRoot, 'kneeboard/global/01-MFD3-UI-LAYER.png');
 const metadata = await sharp(pngPath).metadata();
 
 assert.equal(metadata.width, 1200);

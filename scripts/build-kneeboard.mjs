@@ -7,7 +7,7 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(readFileSync(join(repoRoot, 'config/reserved-inputs.json'), 'utf8'));
 const asset = readFileSync(join(repoRoot, 'kneeboard/assets/source/cougar-mfd-clean.png')).toString('base64');
 const svgDir = join(repoRoot, 'kneeboard/source');
-const pngDir = join(repoRoot, 'kneeboard/UiLayer');
+const pngDir = join(repoRoot, 'kneeboard/global');
 mkdirSync(svgDir, { recursive: true });
 mkdirSync(pngDir, { recursive: true });
 
