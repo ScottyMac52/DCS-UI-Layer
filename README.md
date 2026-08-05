@@ -24,16 +24,27 @@ Download `Scott-DCS-UI-Layer-Complete-Package-<version>.zip`, extract it, and ad
 
 See [Installation](docs/INSTALLATION.md), [Control mappings](docs/CONTROL-MAPPINGS.md), [Modifier variants](docs/MODIFIER-VARIANTS.md), and [OpenKneeboard](docs/OPENKNEEBOARD.md).
 
+## Shared kneeboard pipeline
+
+One script builds the page: `scripts/build-kneeboard.mjs`.
+
+It maps labels from `config/reserved-inputs.json` onto the canonical Thrustmaster MFD diagram from [DCS-Common](https://github.com/ScottyMac52/DCS-Common) (`shared-hardware-consumer.mjs`). DCS-Common is located via `DCS_COMMON_ROOT` or `.dcs-common`. There is no separate `apply-shared-hardware` step.
+
 ## Build and validate
+
+Requirements: Node.js 22, PowerShell 7, and a DCS-Common checkout.
 
 ```powershell
 npm ci
+$env:DCS_COMMON_ROOT = 'C:\path\to\DCS-Common'
 npm run build:kneeboard
 npm test
 ./scripts/Build-OvGME.ps1 -Version 0.1.0
 ./scripts/Test-Package.ps1 -Version 0.1.0
 ./scripts/Build-Release.ps1 -Version 0.1.0
-./scripts/Test-Release.ps1 -Version 0.1.0
+./scripts/Test-Package.ps1 -Version 0.1.0
 ```
+
+`Test-Package.ps1` validates the OVGME package and, when the complete release ZIP is present, the complete release bundle. There is no `Test-Release.ps1`.
 
 Ordinary CI uses versions such as `0.0.0-ci.42`; local builds default to `0.0.0-local`. The tagged release workflow calculates the next semantic version and publishes assets built from that exact commit.
