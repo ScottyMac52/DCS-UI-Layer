@@ -5,7 +5,7 @@
   "description": "Build tooling for Scott's DCS UI Layer profile and OpenKneeboard reference.",
   "type": "module",
   "scripts": {
-    "build:kneeboard": "node scripts/build-kneeboard.mjs && node scripts/apply-shared-hardware.mjs",
+    "build:kneeboard": "node scripts/build-kneeboard.mjs",
     "test:kneeboard": "node scripts/test-kneeboard.mjs",
     "test:profile": "node scripts/test-profile.mjs",
     "test:versioning": "node scripts/test-versioning.mjs",

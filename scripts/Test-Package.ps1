@@ -30,3 +30,28 @@ $UnexpectedModules = Get-ChildItem (Join-Path $ExpandRoot "$PackageName/Config/I
 if ($UnexpectedModules) { throw "Package contains an aircraft-specific input directory: $($UnexpectedModules.Name -join ', ')" }
 & (Join-Path $PSScriptRoot 'Test-Profile.ps1')
 Write-Host 'OvGME package validation passed.'
+
+# Complete release validation when the bundle is present.
+$BundleName = "Scott-DCS-UI-Layer-Complete-Package-$Version"
+$BundleArchive = Join-Path $RepoRoot "dist/$BundleName.zip"
+if (Test-Path $BundleArchive -PathType Leaf) {
+    $ReleaseExpandRoot = Join-Path $RepoRoot '.build/release-test'
+    Remove-Item $ReleaseExpandRoot -Recurse -Force -ErrorAction SilentlyContinue
+    Expand-Archive $BundleArchive $ReleaseExpandRoot
+    $Root = Join-Path $ReleaseExpandRoot $BundleName
+    foreach ($Relative in @(
+        "OVGME/Scott-DCS-UI-Layer-Control-Profiles-$Version.zip",
+        'Documentation/README.md',
+        'Documentation/INSTALLATION.md',
+        'Documentation/CONTROL-MAPPINGS.md',
+        'Documentation/MODIFIER-VARIANTS.md',
+        'RELEASE-NOTES.md',
+        'SHA256SUMS.txt'
+    )) {
+        if (-not (Test-Path (Join-Path $Root $Relative) -PathType Leaf)) { throw "Release is missing $Relative" }
+    }
+    if ((Get-Content (Join-Path $Root 'RELEASE-NOTES.md') -Raw).Contains('{{VERSION}}')) {
+        throw 'Release notes version token was not replaced.'
+    }
+    Write-Host 'Complete release validation passed.'
+}
