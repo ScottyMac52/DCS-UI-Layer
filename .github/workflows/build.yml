@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-
+  contents: write
+  
 jobs:
   build:
     uses: ScottyMac52/DCS-Common/.github/workflows/build.yml@main
