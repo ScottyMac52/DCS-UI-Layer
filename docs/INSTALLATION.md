@@ -17,7 +17,7 @@ The package replaces `Config\Input\UiLayer\modifiers.lua`. The current source pr
 
 Test in at least two airframes:
 
-1. Hold VKB BTN7 or AVA F-16-grip S3.
+1. Hold VKB F-14 BTN7 or MOZA F-16C/F/A-18C BTN3.
 2. Confirm each MFD 3 command matches the mapping page.
 3. Confirm unmodified MFD 3 buttons continue to perform only their aircraft-specific actions.
 4. Confirm the chosen modifier's aircraft command can still fire. This simultaneous behavior is intentional under Option 3.

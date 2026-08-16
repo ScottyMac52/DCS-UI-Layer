@@ -16,7 +16,7 @@ assert.equal(manifest.bindings.length, 10);
 assert.deepEqual([...new Set(manifest.bindings.map(({ category }) => category))].sort(), ['General', 'VR']);
 
 assert.ok(svg.includes('Shared DCS-Common device: tm-mfd'));
-assert.ok(svg.includes('VKB F-14 BTN7 OR AVA F-16 GRIP S3'));
+assert.ok(svg.includes('VKB F-14 BTN7 OR MOZA F-16/F-18 BTN3'));
 assert.equal(new Set(manifest.bindings.map(({ key }) => key)).size, manifest.bindings.length);
 
 console.log('OpenKneeboard validation passed.');

@@ -1,6 +1,6 @@
 local modifiers = {
-	["AVA_F16_S3"] = {
-		["device"] = "Ava [R] Viper {F77212B0-00A8-11f1-8001-444553540000}",
+	["MOZA_F16_F18_BTN3"] = {
+		["device"] = "MOZA AB9 FFB Base {71DA6210-432E-11f1-8001-444553540000}",
 		["key"] = "JOY_BTN3",
 		["switch"] = false,
 	},
@@ -51,4 +51,3 @@ local modifiers = {
 	},
 }
 return modifiers
-

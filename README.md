@@ -2,19 +2,20 @@
 
 Scott's globally active DCS UI Layer profile for simulator and VR controls on Thrustmaster Cougar MFD 3.
 
-The initial profile preserves the ten assignments exported from DCS and makes each chord available through either of these momentary modifiers:
+The profile preserves the ten assignments exported from DCS and exposes one semantic `grip-shift` layer through either of these device-qualified momentary modifiers:
 
 - VKB F-14 Gunfighter `BTN7` (`VKB_F14_BTN7`)
-- Thrustmaster AVA with F-16/Warthog grip `S3` / `JOY_BTN3` (`AVA_F16_S3`)
+- MOZA AB9 with F-16C or F/A-18C grip `BTN3` / `JOY_BTN3` (`MOZA_F16_F18_BTN3`)
 
-The AVA + F/A-18 grip is intentionally not guessed. Its S3 variant will be added after a current UI Layer modifier export supplies the exact device identity and HID button.
+The two activators are explicitly grouped as `grip-shift`; they remain separate physical device/button tuples and are never globally aliased by raw button number.
 
 ## Design rules
 
 - The package writes only `Config\Input\UiLayer` and the global `KNEEBOARD\01-MFD3-UI-LAYER.png` page.
 - Only General and VR commands from Scott's current export are shipped in the initial release. Kneeboard and F10 bindings remain future additions.
-- Every MFD 3 command requires exactly one supported modifier.
-- Option 3 is intentional: BTN7/S3 may remain assigned to aircraft controls. A modifier press can therefore also invoke NWS, A/R disconnect, missile step, or another aircraft-specific action.
+- Every MFD 3 command requires exactly one supported physical activator for the `grip-shift` semantic modifier.
+- Physical modifier identity is the DCS device plus HID key; equivalence is explicit in `config/reserved-inputs.json`.
+- Option 3 is intentional: BTN7/BTN3 may remain assigned to aircraft controls. A modifier press can therefore also invoke NWS, A/R disconnect, missile step, or another aircraft-specific action.
 - No aircraft-specific profile is installed or changed.
 - Git tags in the form `vMAJOR.MINOR.PATCH` are the authoritative release versions.
 
