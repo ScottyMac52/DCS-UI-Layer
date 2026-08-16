@@ -15,11 +15,24 @@ for (const [path, source] of [[profilePath, profile], [modifierPath, modifiers]]
   assert.doesNotThrow(() => luaparse.parse(source, { luaVersion: '5.1' }), `Invalid Lua: ${path}`);
 }
 assert.equal(manifest.bindings.length, 10);
+assert.equal(manifest.schemaVersion, 2);
 assert.equal(manifest.acceptedModifierReuse.enabled, true);
 assert.equal(manifest.acceptedModifierReuse.decision, 'Option 3');
 assert.deepEqual([...new Set(manifest.bindings.map(({ category }) => category))].sort(), ['General', 'VR']);
 const supported = manifest.modifiers.filter(({ status }) => status === 'supported');
-assert.deepEqual(supported.map(({ name }) => name).sort(), ['AVA_F16_S3', 'VKB_F14_BTN7']);
+assert.deepEqual(supported.map(({ name }) => name).sort(), ['MOZA_F16_F18_BTN3', 'VKB_F14_BTN7']);
+const semantic = manifest.semanticModifiers.find(({ id }) => id === 'grip-shift');
+assert.ok(semantic, 'Missing grip-shift semantic modifier.');
+assert.deepEqual([...semantic.activators].sort(), supported.map(({ name }) => name).sort());
+
+const physicalTuples = new Set();
+for (const modifier of supported) {
+  assert.equal(modifier.semanticModifier, semantic.id);
+  const tuple = `${modifier.device}|${modifier.key}`;
+  assert.ok(!physicalTuples.has(tuple), `Duplicate physical modifier tuple ${tuple}`);
+  physicalTuples.add(tuple);
+}
+assert.equal(supported.find(({ name }) => name === 'MOZA_F16_F18_BTN3').gripFamily, 'F-16C/F/A-18C');
 
 const tuples = new Set();
 for (const binding of manifest.bindings) {
@@ -38,9 +51,12 @@ for (const binding of manifest.bindings) {
 for (const modifier of supported) {
   for (const expected of [modifier.name, modifier.device, modifier.key]) assert.ok(modifiers.includes(expected));
 }
-const pending = manifest.modifiers.find(({ name }) => name === 'AVA_F18_S3');
-assert.equal(pending.status, 'awaiting-current-export');
-assert.equal(pending.device, null);
+
+// Regression contract: an unpaired physical path is a coverage gap, while an
+// unrelated device using BTN3 must never be folded into grip-shift.
+const vkbOnly = ['VKB_F14_BTN7'];
+assert.deepEqual(semantic.activators.filter((name) => !vkbOnly.includes(name)), ['MOZA_F16_F18_BTN3']);
+assert.equal(supported.some(({ device, key }) => device === 'Unrelated device' && key === 'JOY_BTN3'), false);
 
 function filesUnder(root) {
   const output = [];

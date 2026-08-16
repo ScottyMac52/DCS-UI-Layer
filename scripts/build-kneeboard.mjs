@@ -26,7 +26,7 @@ const { svg } = renderSharedHardwarePage({
   labels,
   commonRoot,
   title: 'DCS UI LAYER • MFD 3',
-  kicker: 'GENERAL + VR • HOLD VKB F-14 BTN7 OR AVA F-16 GRIP S3',
+  kicker: 'GENERAL + VR • HOLD VKB F-14 BTN7 OR MOZA F-16/F-18 BTN3',
   provenance: { consumer: 'DCS-UI-Layer', page: '1 / 1' },
 });
 

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "device": {
     "name": "F16 MFD 3",
     "guid": "C5BE49A0-2342-11ee-8001-444553540000"
@@ -7,26 +7,34 @@
   "acceptedModifierReuse": {
     "enabled": true,
     "decision": "Option 3",
-    "note": "Scott accepts that a modifier press may also invoke its aircraft-specific BTN7/S3 function."
+    "note": "Scott accepts that a modifier press may also invoke its aircraft-specific BTN7/BTN3 function."
   },
+  "semanticModifiers": [
+    {
+      "id": "grip-shift",
+      "name": "Grip shift",
+      "activators": [
+        "MOZA_F16_F18_BTN3",
+        "VKB_F14_BTN7"
+      ]
+    }
+  ],
   "modifiers": [
+    {
+      "name": "MOZA_F16_F18_BTN3",
+      "device": "MOZA AB9 FFB Base {71DA6210-432E-11f1-8001-444553540000}",
+      "key": "JOY_BTN3",
+      "gripFamily": "F-16C/F/A-18C",
+      "semanticModifier": "grip-shift",
+      "status": "supported"
+    },
     {
       "name": "VKB_F14_BTN7",
       "device": " VKBSim Gunfighter F14   {2D5CEC70-5189-11f1-8001-444553540000}",
       "key": "JOY_BTN7",
+      "gripFamily": "F-14",
+      "semanticModifier": "grip-shift",
       "status": "supported"
-    },
-    {
-      "name": "AVA_F16_S3",
-      "device": "Ava [R] Viper {F77212B0-00A8-11f1-8001-444553540000}",
-      "key": "JOY_BTN3",
-      "status": "supported"
-    },
-    {
-      "name": "AVA_F18_S3",
-      "device": null,
-      "key": null,
-      "status": "awaiting-current-export"
     }
   ],
   "bindings": [
@@ -42,4 +50,3 @@
     { "command": "d2627pnilu2627cdnilvd1vpnilvu0", "name": "VR, left hand (enable/disable)", "category": "VR", "key": "JOY_BTN27" }
   ]
 }
-
