@@ -15,12 +15,19 @@
       "title": " VKBSim Gunfighter F14",
       "kicker": "SCAFFOLD DRAFT",
       "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
-      "labels": {},
+      "labels": {
+        "vkb-nws": "SHIFT / MODIFIER"
+      },
+      "modifierCallouts": {
+        "vkb-nws": "JOY_BTN7"
+      },
       "layers": [
         {
           "id": "base",
           "controls": {},
-          "labels": {}
+          "labels": {
+            "vkb-nws": "SHIFT / MODIFIER"
+          }
         },
         {
           "id": "JOY_BTN7",
@@ -52,6 +59,7 @@
       "kicker": "SCAFFOLD DRAFT",
       "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {},
+      "modifierCallouts": {},
       "layers": [
         {
           "id": "base",
@@ -66,7 +74,7 @@
             "JOY_BTN3"
           ],
           "controls": {
-            "warthog-grip-paddle": {
+            "warthog-grip-pinky": {
               "profile": "ava-base-f16c",
               "key": "JOY_BTN4",
               "command": "d216pnilunilcdnilvdnilvpnilvunil",
@@ -76,7 +84,7 @@
             }
           },
           "labels": {
-            "warthog-grip-paddle": "Re-center VR"
+            "warthog-grip-pinky": "Re-center VR"
           }
         }
       ]
@@ -88,6 +96,7 @@
       "kicker": "INSTANCE 3",
       "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {},
+      "modifierCallouts": {},
       "layers": [
         {
           "id": "base",
@@ -252,12 +261,19 @@
       "title": "MOZA AB9 FFB Base",
       "kicker": "SCAFFOLD DRAFT",
       "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
-      "labels": {},
+      "labels": {
+        "hornet-grip-nws-undesignate": "SHIFT / MODIFIER"
+      },
+      "modifierCallouts": {
+        "hornet-grip-nws-undesignate": "JOY_BTN3"
+      },
       "layers": [
         {
           "id": "base",
           "controls": {},
-          "labels": {}
+          "labels": {
+            "hornet-grip-nws-undesignate": "SHIFT / MODIFIER"
+          }
         },
         {
           "id": "JOY_BTN3",
@@ -289,6 +305,7 @@
       "kicker": "SCAFFOLD DRAFT",
       "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {},
+      "modifierCallouts": {},
       "layers": [
         {
           "id": "base",
@@ -445,52 +462,64 @@
     "JOY_BTN3": {
       "nativeName": "JOY_BTN3",
       "mode": "hold",
-      "semanticModifier": "JOY_BTN3"
+      "semanticModifier": "JOY_BTN3",
+      "deviceId": "moza-ab9-hornet-grip",
+      "label": "JOY_BTN3"
     },
     "JOY_BTN7": {
       "nativeName": "JOY_BTN7",
       "mode": "hold",
-      "semanticModifier": "JOY_BTN7"
+      "semanticModifier": "JOY_BTN7",
+      "deviceId": "vkb-f14-gunfighter",
+      "label": "JOY_BTN7"
     },
     "LAlt": {
       "nativeName": "LAlt",
       "mode": "hold",
-      "semanticModifier": "LAlt"
+      "semanticModifier": "LAlt",
+      "label": "LAlt"
     },
     "LCtrl": {
       "nativeName": "LCtrl",
       "mode": "hold",
-      "semanticModifier": "LCtrl"
+      "semanticModifier": "LCtrl",
+      "label": "LCtrl"
     },
     "LShift": {
       "nativeName": "LShift",
       "mode": "hold",
-      "semanticModifier": "LShift"
+      "semanticModifier": "LShift",
+      "label": "LShift"
     },
     "LWin": {
       "nativeName": "LWin",
       "mode": "hold",
-      "semanticModifier": "LWin"
+      "semanticModifier": "LWin",
+      "label": "LWin"
     },
     "RAlt": {
       "nativeName": "RAlt",
       "mode": "hold",
-      "semanticModifier": "RAlt"
+      "semanticModifier": "RAlt",
+      "label": "RAlt"
     },
     "RCtrl": {
       "nativeName": "RCtrl",
       "mode": "hold",
-      "semanticModifier": "RCtrl"
+      "semanticModifier": "RCtrl",
+      "label": "RCtrl"
     },
     "RShift": {
       "nativeName": "RShift",
       "mode": "hold",
-      "semanticModifier": "RShift"
+      "semanticModifier": "RShift",
+      "label": "RShift"
     },
     "RWin": {
       "nativeName": "RWin",
       "mode": "hold",
-      "semanticModifier": "RWin"
+      "semanticModifier": "RWin",
+      "label": "RWin"
     }
   }
 }
