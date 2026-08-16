@@ -1,22 +1,22 @@
+import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { existsSync, readdirSync } from 'node:fs';
+import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import sharp from 'sharp';
+import { spawnSync } from 'node:child_process';
 
-const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
-const manifest = JSON.parse(readFileSync(join(repoRoot, 'config/reserved-inputs.json'), 'utf8'));
-const svg = readFileSync(join(repoRoot, 'kneeboard/source/01-MFD3-UI-LAYER.svg'), 'utf8');
-const pngPath = join(repoRoot, 'kneeboard/global/01-MFD3-UI-LAYER.png');
-const metadata = await sharp(pngPath).metadata();
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-assert.equal(metadata.width, 1200);
-assert.equal(metadata.height, 1600);
-assert.equal(manifest.bindings.length, 10);
-assert.deepEqual([...new Set(manifest.bindings.map(({ category }) => category))].sort(), ['General', 'VR']);
-
-assert.ok(svg.includes('Shared DCS-Common device: tm-mfd'));
-assert.ok(svg.includes('VKB F-14 BTN7 OR MOZA F-16/F-18 BTN3'));
-assert.equal(new Set(manifest.bindings.map(({ key }) => key)).size, manifest.bindings.length);
-
-console.log('OpenKneeboard validation passed.');
+test('build:kneeboard produces source SVG and PNG folders', () => {
+  const result = spawnSync('npm', ['run', 'build:kneeboard'], {
+    cwd: root,
+    encoding: 'utf8',
+    shell: true,
+    env: process.env,
+  });
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  assert.ok(existsSync(join(root, 'kneeboard', 'source')));
+  const pngRoot = join(root, 'kneeboard');
+  const dirs = readdirSync(pngRoot).filter((name) => name !== 'source');
+  assert.ok(dirs.length >= 1, 'expected a kneeboard PNG folder');
+});

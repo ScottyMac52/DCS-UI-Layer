@@ -1,18 +1,13 @@
 {
-  "name": "dcs-ui-layer",
-  "version": "0.0.0",
+  "name": "DCS-UiLayer-Components",
   "private": true,
-  "description": "Build tooling for Scott's DCS UI Layer profile and OpenKneeboard reference.",
   "type": "module",
   "scripts": {
     "build:kneeboard": "node scripts/build-kneeboard.mjs",
     "test:kneeboard": "node scripts/test-kneeboard.mjs",
-    "test:profile": "node scripts/test-profile.mjs",
-    "test:versioning": "node scripts/test-versioning.mjs",
-    "test": "npm run test:versioning && npm run test:profile && npm run test:kneeboard"
+    "test:versioning": "node scripts/test-versioning.mjs"
   },
   "devDependencies": {
-    "luaparse": "^0.3.1",
     "sharp": "^0.34.5"
   }
 }

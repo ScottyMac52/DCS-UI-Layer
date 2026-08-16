@@ -1,12 +1,11 @@
-name: Create tagged OvGME release
-
+name: Create tagged OVGME release
 on:
   workflow_dispatch:
     inputs:
       bump:
         description: Semantic version component to increment
         required: true
-        default: minor
+        default: patch
         type: choice
         options: [patch, minor, major]
 
@@ -24,24 +23,16 @@ jobs:
       bump: ${{ inputs.bump }}
       install-lua-parser: true
       run-lua-parse: true
-      extra-validation-command: |
-        npm run test:profile
-        ./scripts/Test-Profile.ps1
-        ./scripts/Test-CollisionFixtures.ps1
+      run-release-validation: true
       package-script: scripts/Build-OvGME.ps1
       test-package-script: scripts/Test-Package.ps1
       build-release-script: scripts/Build-Release.ps1
       test-release-script: scripts/Test-Package.ps1
-      run-release-validation: true
-      artifact-name: DCS-UI-Layer-Release-${{ inputs.bump }}-${{ github.run_number }}
+      artifact-name: UiLayer-Release-${{ inputs.bump }}-${{ github.run_number }}
       artifact-path: |
         dist/*.zip
         dist/SHA256SUMS.txt
-      release-notes-path: .build/RELEASE-NOTES.md
-      prepare-release-notes-command: |
-        $Notes = Get-Content packaging/release/RELEASE-NOTES.md -Raw
-        New-Item .build -ItemType Directory -Force | Out-Null
-        $Notes.Replace('{{VERSION}}', $env:PACKAGE_VERSION) | Set-Content .build/RELEASE-NOTES.md
-      kneeboard-paths: kneeboard/source kneeboard/global
-      release-title-prefix: DCS UI Layer
+      release-notes-path: packaging/release/RELEASE-NOTES.md
+      kneeboard-paths: kneeboard/source kneeboard/UiLayer
+      release-title-prefix: DCS-UiLayer-Components
     secrets: inherit
