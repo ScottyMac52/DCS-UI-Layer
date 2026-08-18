@@ -32,8 +32,11 @@ try {
   if (-not ($entries | Where-Object { $_.StartsWith("${payloadPrefix}Config/Input/UiLayer/joystick/", [System.StringComparison]::Ordinal) })) {
     throw 'OVGME archive is missing the joystick profile payload.'
   }
-  if (-not ($entries | Where-Object { $_.StartsWith("${payloadPrefix}KNEEBOARD/UiLayer/", [System.StringComparison]::Ordinal) })) {
+  if (-not ($entries | Where-Object { $_.StartsWith("${payloadPrefix}Kneeboard/", [System.StringComparison]::Ordinal) })) {
     throw 'OVGME archive is missing the kneeboard payload.'
+  }
+  if ($entries | Where-Object { $_.StartsWith("${payloadPrefix}Kneeboard/UiLayer/", [System.StringComparison]::Ordinal) }) {
+    throw 'UI Layer kneeboard pages must be installed directly in the Saved Games Kneeboard root.'
   }
   if ($entries -notcontains 'README.TXT') { throw 'OVGME archive is missing README.TXT.' }
   if ($entries -notcontains 'VERSION.TXT') { throw 'OVGME archive is missing VERSION.TXT.' }

@@ -6,7 +6,7 @@ Scaffolded by **DCS Input Profile Importer** (DCS-Common).
 | --- | --- |
 | Display name | UiLayer |
 | DCS input module | `UiLayer` |
-| Kneeboard folder | `UiLayer` |
+| Kneeboard folder | Saved Games `Kneeboard` root |
 
 ## Local build
 
