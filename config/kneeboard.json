@@ -14,12 +14,12 @@
       "deviceId": "vkb-f14-gunfighter",
       "title": " VKBSim Gunfighter F14",
       "kicker": "SCAFFOLD DRAFT",
-      "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
+      "_comment": "labels default to the imported DCS command name and remain editable; deviceLabel contains the canonical DCS-Common hardware label. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {
         "vkb-nws": "SHIFT / MODIFIER"
       },
       "modifierCallouts": {
-        "vkb-nws": "JOY_BTN7"
+        "vkb-nws": "VKB_F14_BTN7"
       },
       "layers": [
         {
@@ -30,24 +30,85 @@
           }
         },
         {
-          "id": "JOY_BTN7",
-          "file": "01-VKB-F14-GUNFIGHTER-JOY-BTN7",
-          "title": " VKBSim Gunfighter F14 • JOY_BTN7",
+          "id": "VKB_F14_BTN7",
+          "file": "01-VKB-F14-GUNFIGHTER-VKB-F14-BTN7",
+          "title": " VKBSim Gunfighter F14 • VKB_F14_BTN7",
           "activators": [
-            "JOY_BTN7"
+            "VKB_F14_BTN7"
           ],
           "controls": {
+            "vkb-trim-right": {
+              "profile": "vkb-f14-gunfighter",
+              "key": "JOY_BTN9",
+              "command": "d191pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time decelerate",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
             "vkb-paddle": {
               "profile": "vkb-f14-gunfighter",
               "key": "JOY_BTN6",
               "command": "d216pnilunilcdnilvdnilvpnilvunil",
+              "label": "recenter VR",
               "modifiers": [
-                "JOY_BTN7"
+                "VKB_F14_BTN7"
+              ]
+            },
+            "vkb-trim-down": {
+              "profile": "vkb-f14-gunfighter",
+              "key": "JOY_BTN11",
+              "command": "d246pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time normal",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "vkb-trigger": {
+              "profile": "vkb-f14-gunfighter",
+              "key": "JOY_BTN1",
+              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
+              "label": "Zoom",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "vkb-trigger-stage2": {
+              "profile": "vkb-f14-gunfighter",
+              "key": "JOY_BTN2",
+              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
+              "label": "Spyglass",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "vkb-trim-left": {
+              "profile": "vkb-f14-gunfighter",
+              "key": "JOY_BTN12",
+              "command": "d53pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time accelerate",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "vkb-hat": {
+              "profile": "vkb-f14-gunfighter",
+              "key": "JOY_BTN8",
+              "command": "d816pnilunilcdnilvdnilvpnilvunil",
+              "label": "Active Pause",
+              "modifiers": [
+                "VKB_F14_BTN7"
               ]
             }
           },
           "labels": {
-            "vkb-paddle": "Re-center VR"
+            "vkb-trim-right": "Time decelerate",
+            "vkb-paddle": "recenter VR",
+            "vkb-trim-down": "Time normal",
+            "vkb-trigger": "Zoom",
+            "vkb-trigger-stage2": "Spyglass",
+            "vkb-trim-left": "Time accelerate",
+            "vkb-hat": "Active Pause"
           }
         }
       ]
@@ -57,34 +118,61 @@
       "deviceId": "ava-base-f16c",
       "title": "Ava [R] Viper",
       "kicker": "SCAFFOLD DRAFT",
-      "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
-      "labels": {},
-      "modifierCallouts": {},
+      "_comment": "labels default to the imported DCS command name and remain editable; deviceLabel contains the canonical DCS-Common hardware label. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
+      "labels": {
+        "warthog-grip-paddle": "SHIFT / MODIFIER"
+      },
+      "modifierCallouts": {
+        "warthog-grip-paddle": "TM_AVA_BASE_F16_MODIFIER"
+      },
       "layers": [
         {
           "id": "base",
           "controls": {},
-          "labels": {}
+          "labels": {
+            "warthog-grip-paddle": "SHIFT / MODIFIER"
+          }
         },
         {
-          "id": "JOY_BTN3",
-          "file": "02-AVA-BASE-F16C-JOY-BTN3",
-          "title": "Ava [R] Viper • JOY_BTN3",
+          "id": "TM_AVA_BASE_F16_MODIFIER",
+          "file": "02-AVA-BASE-F16C-TM-AVA-BASE-F16-MODIFIER",
+          "title": "Ava [R] Viper • TM_AVA_BASE_F16_MODIFIER",
           "activators": [
-            "JOY_BTN3"
+            "TM_AVA_BASE_F16_MODIFIER"
           ],
           "controls": {
             "warthog-grip-pinky": {
               "profile": "ava-base-f16c",
               "key": "JOY_BTN4",
               "command": "d216pnilunilcdnilvdnilvpnilvunil",
+              "label": "recenter VR ",
               "modifiers": [
-                "JOY_BTN3"
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "warthog-grip-cms-push": {
+              "profile": "ava-base-f16c",
+              "key": "JOY_BTN19",
+              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
+              "label": "Zoom",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "warthog-grip-cms-forward": {
+              "profile": "ava-base-f16c",
+              "key": "JOY_BTN15",
+              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
+              "label": "Spyglass",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
               ]
             }
           },
           "labels": {
-            "warthog-grip-pinky": "Re-center VR"
+            "warthog-grip-pinky": "recenter VR ",
+            "warthog-grip-cms-push": "Zoom",
+            "warthog-grip-cms-forward": "Spyglass"
           }
         }
       ]
@@ -94,7 +182,7 @@
       "deviceId": "tm-mfd",
       "title": "F16 MFD 3",
       "kicker": "INSTANCE 3",
-      "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
+      "_comment": "labels default to the imported DCS command name and remain editable; deviceLabel contains the canonical DCS-Common hardware label. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {},
       "modifierCallouts": {},
       "layers": [
@@ -104,153 +192,339 @@
           "labels": {}
         },
         {
-          "id": "JOY_BTN3",
-          "file": "03-TM-MFD-3-JOY-BTN3",
-          "title": "F16 MFD 3 • JOY_BTN3",
+          "id": "VKB_F14_BTN7",
+          "file": "03-TM-MFD-3-VKB-F14-BTN7",
+          "title": "F16 MFD 3 • VKB_F14_BTN7",
           "activators": [
-            "JOY_BTN3"
+            "VKB_F14_BTN7"
           ],
           "controls": {
             "mfd-rocker-brt-down": {
               "profile": "tm-mfd-3",
               "key": "JOY_BTN26",
               "command": "d191pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time Slow",
               "modifiers": [
-                "JOY_BTN3"
-              ]
-            },
-            "mfd-rocker-sym": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN27",
-              "command": "d246pnilunilcdnilvdnilvpnilvunil",
-              "modifiers": [
-                "JOY_BTN3"
-              ]
-            },
-            "mfd-osb-t3-shifted": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN3",
-              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN3"
-              ]
-            },
-            "mfd-osb-t4-shifted": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN4",
-              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN3"
-              ]
-            },
-            "mfd-rocker-con-up": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN23",
-              "command": "d2627pnilu2627cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN3"
+                "VKB_F14_BTN7"
               ]
             },
             "mfd-rocker-con-down": {
               "profile": "tm-mfd-3",
               "key": "JOY_BTN24",
-              "command": "d2628pnilu2628cdnilvd1vpnilvu0",
+              "command": "d216pnilunilcdnilvdnilvpnilvunil",
+              "label": "recenter VR",
               "modifiers": [
-                "JOY_BTN3"
+                "VKB_F14_BTN7"
+              ]
+            },
+            "mfd-osb-b3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN13",
+              "command": "d246pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time normal",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "mfd-osb-t1-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN1",
+              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
+              "label": "Zoom",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "mfd-osb-t2-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN2",
+              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
+              "label": "Spyglass",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "mfd-rocker-sym": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN27",
+              "command": "d2627pnilu2627cdnilvd1vpnilvu0",
+              "label": "VR, left",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "mfd-rocker-gain": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN21",
+              "command": "d2628pnilu2628cdnilvd1vpnilvu0",
+              "label": "VR, right",
+              "modifiers": [
+                "VKB_F14_BTN7"
+              ]
+            },
+            "mfd-osb-l3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN18",
+              "command": "d52pnilunilcdnilvdnilvpnilvunil",
+              "label": "Pause",
+              "modifiers": [
+                "VKB_F14_BTN7"
               ]
             },
             "mfd-rocker-brt-up": {
               "profile": "tm-mfd-3",
               "key": "JOY_BTN25",
               "command": "d53pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time Fast",
               "modifiers": [
-                "JOY_BTN3"
+                "VKB_F14_BTN7"
+              ]
+            },
+            "mfd-osb-t3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN3",
+              "command": "d816pnilunilcdnilvdnilvpnilvunil",
+              "label": "Active Pause",
+              "modifiers": [
+                "VKB_F14_BTN7"
               ]
             }
           },
           "labels": {
-            "mfd-rocker-brt-down": "decelerate Time",
-            "mfd-rocker-sym": "Time Normal",
-            "mfd-osb-t3-shifted": "VR Zoom",
-            "mfd-osb-t4-shifted": "Spyglass VR",
-            "mfd-rocker-con-up": "VR Left",
-            "mfd-rocker-con-down": "VR Right",
-            "mfd-rocker-brt-up": "Accelerate Time"
+            "mfd-rocker-brt-down": "Time Slow",
+            "mfd-rocker-con-down": "recenter VR",
+            "mfd-osb-b3-shifted": "Time normal",
+            "mfd-osb-t1-shifted": "Zoom",
+            "mfd-osb-t2-shifted": "Spyglass",
+            "mfd-rocker-sym": "VR, left",
+            "mfd-rocker-gain": "VR, right",
+            "mfd-osb-l3-shifted": "Pause",
+            "mfd-rocker-brt-up": "Time Fast",
+            "mfd-osb-t3-shifted": "Active Pause"
           }
         },
         {
-          "id": "JOY_BTN7",
-          "file": "03-TM-MFD-3-JOY-BTN7",
-          "title": "F16 MFD 3 • JOY_BTN7",
+          "id": "MOZA_F16_F18_BTN3",
+          "file": "03-TM-MFD-3-MOZA-F16-F18-BTN3",
+          "title": "F16 MFD 3 • MOZA_F16_F18_BTN3",
           "activators": [
-            "JOY_BTN7"
+            "MOZA_F16_F18_BTN3"
           ],
           "controls": {
             "mfd-rocker-brt-down": {
               "profile": "tm-mfd-3",
               "key": "JOY_BTN26",
               "command": "d191pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time Slow",
               "modifiers": [
-                "JOY_BTN7"
-              ]
-            },
-            "mfd-rocker-sym": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN27",
-              "command": "d246pnilunilcdnilvdnilvpnilvunil",
-              "modifiers": [
-                "JOY_BTN7"
-              ]
-            },
-            "mfd-osb-t3-shifted": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN3",
-              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN7"
-              ]
-            },
-            "mfd-osb-t4-shifted": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN4",
-              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN7"
-              ]
-            },
-            "mfd-rocker-con-up": {
-              "profile": "tm-mfd-3",
-              "key": "JOY_BTN23",
-              "command": "d2627pnilu2627cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN7"
+                "MOZA_F16_F18_BTN3"
               ]
             },
             "mfd-rocker-con-down": {
               "profile": "tm-mfd-3",
               "key": "JOY_BTN24",
-              "command": "d2628pnilu2628cdnilvd1vpnilvu0",
+              "command": "d216pnilunilcdnilvdnilvpnilvunil",
+              "label": "recenter VR",
               "modifiers": [
-                "JOY_BTN7"
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "mfd-osb-b3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN13",
+              "command": "d246pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time normal",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "mfd-osb-t1-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN1",
+              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
+              "label": "Zoom",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "mfd-osb-t2-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN2",
+              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
+              "label": "Spyglass",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "mfd-rocker-sym": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN27",
+              "command": "d2627pnilu2627cdnilvd1vpnilvu0",
+              "label": "VR, left ",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "mfd-rocker-gain": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN21",
+              "command": "d2628pnilu2628cdnilvd1vpnilvu0",
+              "label": "VR, right",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "mfd-osb-l3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN18",
+              "command": "d52pnilunilcdnilvdnilvpnilvunil",
+              "label": "Pause",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
               ]
             },
             "mfd-rocker-brt-up": {
               "profile": "tm-mfd-3",
               "key": "JOY_BTN25",
               "command": "d53pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time Fast",
               "modifiers": [
-                "JOY_BTN7"
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "mfd-osb-t3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN3",
+              "command": "d816pnilunilcdnilvdnilvpnilvunil",
+              "label": "Active Pause",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
               ]
             }
           },
           "labels": {
-            "mfd-rocker-brt-down": "decelerate Time",
-            "mfd-rocker-sym": "Time Normal",
-            "mfd-osb-t3-shifted": "VR Zoom",
-            "mfd-osb-t4-shifted": "VR Spyglass",
-            "mfd-rocker-con-up": "VR Left",
-            "mfd-rocker-con-down": "VR Right",
-            "mfd-rocker-brt-up": "Accelerate Time"
+            "mfd-rocker-brt-down": "Time Slow",
+            "mfd-rocker-con-down": "recenter VR",
+            "mfd-osb-b3-shifted": "Time normal",
+            "mfd-osb-t1-shifted": "Zoom",
+            "mfd-osb-t2-shifted": "Spyglass",
+            "mfd-rocker-sym": "VR, left ",
+            "mfd-rocker-gain": "VR, right",
+            "mfd-osb-l3-shifted": "Pause",
+            "mfd-rocker-brt-up": "Time Fast",
+            "mfd-osb-t3-shifted": "Active Pause"
+          }
+        },
+        {
+          "id": "TM_AVA_BASE_F16_MODIFIER",
+          "file": "03-TM-MFD-3-TM-AVA-BASE-F16-MODIFIER",
+          "title": "F16 MFD 3 • TM_AVA_BASE_F16_MODIFIER",
+          "activators": [
+            "TM_AVA_BASE_F16_MODIFIER"
+          ],
+          "controls": {
+            "mfd-rocker-brt-down": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN26",
+              "command": "d191pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time Slow",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-rocker-con-down": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN24",
+              "command": "d216pnilunilcdnilvdnilvpnilvunil",
+              "label": "recenter VR",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-osb-b3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN13",
+              "command": "d246pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time normal",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-osb-t1-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN1",
+              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
+              "label": "Zoom",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-osb-t2-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN2",
+              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
+              "label": "Spyglass",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-rocker-sym": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN27",
+              "command": "d2627pnilu2627cdnilvd1vpnilvu0",
+              "label": "VR, left ",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-rocker-gain": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN21",
+              "command": "d2628pnilu2628cdnilvd1vpnilvu0",
+              "label": "VR, right",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-osb-l3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN18",
+              "command": "d52pnilunilcdnilvdnilvpnilvunil",
+              "label": "Pause",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-rocker-brt-up": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN25",
+              "command": "d53pnilunilcdnilvdnilvpnilvunil",
+              "label": "Time Fast",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            },
+            "mfd-osb-t3-shifted": {
+              "profile": "tm-mfd-3",
+              "key": "JOY_BTN3",
+              "command": "d816pnilunilcdnilvdnilvpnilvunil",
+              "label": "Active Pause",
+              "modifiers": [
+                "TM_AVA_BASE_F16_MODIFIER"
+              ]
+            }
+          },
+          "labels": {
+            "mfd-rocker-brt-down": "Time Slow",
+            "mfd-rocker-con-down": "recenter VR",
+            "mfd-osb-b3-shifted": "Time normal",
+            "mfd-osb-t1-shifted": "Zoom",
+            "mfd-osb-t2-shifted": "Spyglass",
+            "mfd-rocker-sym": "VR, left ",
+            "mfd-rocker-gain": "VR, right",
+            "mfd-osb-l3-shifted": "Pause",
+            "mfd-rocker-brt-up": "Time Fast",
+            "mfd-osb-t3-shifted": "Active Pause"
           }
         }
       ]
@@ -260,12 +534,12 @@
       "deviceId": "moza-ab9-hornet-grip",
       "title": "MOZA AB9 FFB Base",
       "kicker": "SCAFFOLD DRAFT",
-      "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
+      "_comment": "labels default to the imported DCS command name and remain editable; deviceLabel contains the canonical DCS-Common hardware label. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {
         "hornet-grip-nws-undesignate": "SHIFT / MODIFIER"
       },
       "modifierCallouts": {
-        "hornet-grip-nws-undesignate": "JOY_BTN3"
+        "hornet-grip-nws-undesignate": "MOZA_F16_F18_BTN3"
       },
       "layers": [
         {
@@ -276,24 +550,45 @@
           }
         },
         {
-          "id": "JOY_BTN3",
-          "file": "04-MOZA-AB9-HORNET-GRIP-JOY-BTN3",
-          "title": "MOZA AB9 FFB Base • JOY_BTN3",
+          "id": "MOZA_F16_F18_BTN3",
+          "file": "04-MOZA-AB9-HORNET-GRIP-MOZA-F16-F18-BTN3",
+          "title": "MOZA AB9 FFB Base • MOZA_F16_F18_BTN3",
           "activators": [
-            "JOY_BTN3"
+            "MOZA_F16_F18_BTN3"
           ],
           "controls": {
             "hornet-grip-paddle": {
               "profile": "moza-ab9-hornet-grip",
               "key": "JOY_BTN4",
               "command": "d216pnilunilcdnilvdnilvpnilvunil",
+              "label": "recenter VR",
               "modifiers": [
-                "JOY_BTN3"
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "hornet-grip-weapon-select-push": {
+              "profile": "moza-ab9-hornet-grip",
+              "key": "JOY_BTN19",
+              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
+              "label": "VR Zoom",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
+              ]
+            },
+            "hornet-grip-weapon-select-forward": {
+              "profile": "moza-ab9-hornet-grip",
+              "key": "JOY_BTN15",
+              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
+              "label": "Spyglass",
+              "modifiers": [
+                "MOZA_F16_F18_BTN3"
               ]
             }
           },
           "labels": {
-            "hornet-grip-paddle": "re-center VR"
+            "hornet-grip-paddle": "recenter VR",
+            "hornet-grip-weapon-select-push": "VR Zoom",
+            "hornet-grip-weapon-select-forward": "Spyglass"
           }
         }
       ]
@@ -303,7 +598,7 @@
       "deviceId": "viper-tqs-mission-pack",
       "title": "Viper TQS",
       "kicker": "SCAFFOLD DRAFT",
-      "_comment": "labels are pre-filled from canonical DCS-Common hardware labels and remain separate from DCS command names. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
+      "_comment": "labels default to the imported DCS command name and remain editable; deviceLabel contains the canonical DCS-Common hardware label. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {},
       "modifierCallouts": {},
       "layers": [
@@ -313,85 +608,31 @@
           "labels": {}
         },
         {
-          "id": "JOY_BTN3",
-          "file": "05-VIPER-TQS-MISSION-PACK-JOY-BTN3",
-          "title": "Viper TQS • JOY_BTN3",
+          "id": "VKB_F14_BTN7",
+          "file": "05-VIPER-TQS-MISSION-PACK-VKB-F14-BTN7",
+          "title": "Viper TQS • VKB_F14_BTN7",
           "activators": [
-            "JOY_BTN3"
+            "VKB_F14_BTN7"
           ],
           "controls": {
-            "viper-tqs-button-05": {
+            "viper-tqs-button-16": {
               "profile": "viper-tqs-mission-pack",
-              "key": "JOY_BTN5",
-              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN3"
-              ]
-            },
-            "viper-tqs-button-04": {
-              "profile": "viper-tqs-mission-pack",
-              "key": "JOY_BTN4",
+              "key": "JOY_BTN16",
               "command": "d2605pnilu2605cdnilvd1vpnilvu0",
+              "label": "Spyglass",
               "modifiers": [
-                "JOY_BTN3"
+                "VKB_F14_BTN7"
               ]
             }
           },
           "labels": {
-            "viper-tqs-button-05": "VR Zoom",
-            "viper-tqs-button-04": "Spyglass VR"
-          }
-        },
-        {
-          "id": "JOY_BTN7",
-          "file": "05-VIPER-TQS-MISSION-PACK-JOY-BTN7",
-          "title": "Viper TQS • JOY_BTN7",
-          "activators": [
-            "JOY_BTN7"
-          ],
-          "controls": {
-            "viper-tqs-button-05": {
-              "profile": "viper-tqs-mission-pack",
-              "key": "JOY_BTN5",
-              "command": "d2604pnilu2604cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN7"
-              ]
-            },
-            "viper-tqs-button-04": {
-              "profile": "viper-tqs-mission-pack",
-              "key": "JOY_BTN4",
-              "command": "d2605pnilu2605cdnilvd1vpnilvu0",
-              "modifiers": [
-                "JOY_BTN7"
-              ]
-            }
-          },
-          "labels": {
-            "viper-tqs-button-05": "VR Zoom",
-            "viper-tqs-button-04": "Spyglass VR"
+            "viper-tqs-button-16": "Spyglass"
           }
         }
       ]
     }
   ],
   "semanticModifiers": {
-    "JOY_BTN3": [
-      {
-        "nativeName": "JOY_BTN3",
-        "device": "MOZA AB9 FFB Base {71DA6210-432E-11f1-8001-444553540000}",
-        "key": "JOY_BTN3",
-        "mode": "hold"
-      }
-    ],
-    "JOY_BTN7": [
-      {
-        "nativeName": "JOY_BTN7",
-        "device": " VKBSim Gunfighter F14   {2D5CEC70-5189-11f1-8001-444553540000}",
-        "key": "JOY_BTN7",
-        "mode": "hold"
-      }
-    ],
     "LAlt": [
       {
         "nativeName": "LAlt",
@@ -421,6 +662,14 @@
         "nativeName": "LWin",
         "device": "Keyboard",
         "key": "LWin",
+        "mode": "hold"
+      }
+    ],
+    "MOZA_F16_F18_BTN3": [
+      {
+        "nativeName": "MOZA_F16_F18_BTN3",
+        "device": "MOZA AB9 FFB Base {71DA6210-432E-11f1-8001-444553540000}",
+        "key": "JOY_BTN3",
         "mode": "hold"
       }
     ],
@@ -455,24 +704,26 @@
         "key": "RWin",
         "mode": "hold"
       }
+    ],
+    "TM_AVA_BASE_F16_MODIFIER": [
+      {
+        "nativeName": "TM_AVA_BASE_F16_MODIFIER",
+        "device": "Ava [R] Viper {F77212B0-00A8-11f1-8001-444553540000}",
+        "key": "JOY_BTN3",
+        "mode": "hold"
+      }
+    ],
+    "VKB_F14_BTN7": [
+      {
+        "nativeName": "VKB_F14_BTN7",
+        "device": " VKBSim Gunfighter F14   {2D5CEC70-5189-11f1-8001-444553540000}",
+        "key": "JOY_BTN7",
+        "mode": "hold"
+      }
     ]
   },
   "modifiersFile": "src/Config/Input/UiLayer/modifiers.lua",
   "modifiers": {
-    "JOY_BTN3": {
-      "nativeName": "JOY_BTN3",
-      "mode": "hold",
-      "semanticModifier": "JOY_BTN3",
-      "deviceId": "moza-ab9-hornet-grip",
-      "label": "JOY_BTN3"
-    },
-    "JOY_BTN7": {
-      "nativeName": "JOY_BTN7",
-      "mode": "hold",
-      "semanticModifier": "JOY_BTN7",
-      "deviceId": "vkb-f14-gunfighter",
-      "label": "JOY_BTN7"
-    },
     "LAlt": {
       "nativeName": "LAlt",
       "mode": "hold",
@@ -497,6 +748,13 @@
       "semanticModifier": "LWin",
       "label": "LWin"
     },
+    "MOZA_F16_F18_BTN3": {
+      "nativeName": "MOZA_F16_F18_BTN3",
+      "mode": "hold",
+      "semanticModifier": "MOZA_F16_F18_BTN3",
+      "deviceId": "moza-ab9-hornet-grip",
+      "label": "MOZA_F16_F18_BTN3"
+    },
     "RAlt": {
       "nativeName": "RAlt",
       "mode": "hold",
@@ -520,6 +778,20 @@
       "mode": "hold",
       "semanticModifier": "RWin",
       "label": "RWin"
+    },
+    "TM_AVA_BASE_F16_MODIFIER": {
+      "nativeName": "TM_AVA_BASE_F16_MODIFIER",
+      "mode": "hold",
+      "semanticModifier": "TM_AVA_BASE_F16_MODIFIER",
+      "deviceId": "ava-base-f16c",
+      "label": "TM_AVA_BASE_F16_MODIFIER"
+    },
+    "VKB_F14_BTN7": {
+      "nativeName": "VKB_F14_BTN7",
+      "mode": "hold",
+      "semanticModifier": "VKB_F14_BTN7",
+      "deviceId": "vkb-f14-gunfighter",
+      "label": "VKB_F14_BTN7"
     }
   }
 }

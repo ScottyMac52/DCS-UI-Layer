@@ -8,7 +8,8 @@ New-Item -ItemType Directory -Force -Path $dist | Out-Null
 $stage = Join-Path $dist "stage-$Version"
 if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
 $pkgName = 'DCS-UiLayer-Components'
-$pkg = Join-Path $stage $pkgName
+$archiveBase = "$pkgName-$Version-OVGME"
+$pkg = Join-Path $stage $archiveBase
 New-Item -ItemType Directory -Force -Path (Join-Path $pkg "Config/Input/UiLayer/joystick") | Out-Null
 Copy-Item (Join-Path $root 'src/Config/Input/UiLayer/joystick/*') (Join-Path $pkg "Config/Input/UiLayer/joystick/") -Force
 $modSrc = Join-Path $root 'src/Config/Input/UiLayer/modifiers.lua'
@@ -22,7 +23,7 @@ Copy-Item (Join-Path $kb '*') (Join-Path $pkg "KNEEBOARD/UiLayer/") -Force
 $readme = (Get-Content (Join-Path $root 'packaging/ovgme/README.TXT') -Raw) -replace '\{\{VERSION\}\}', $Version
 Set-Content -Path (Join-Path $stage 'README.TXT') -Value $readme -NoNewline
 Set-Content -Path (Join-Path $stage 'VERSION.TXT') -Value $Version -NoNewline
-$zip = Join-Path $dist "$pkgName-$Version-OVGME.zip"
+$zip = Join-Path $dist "$archiveBase.zip"
 if (Test-Path $zip) { Remove-Item $zip -Force }
 Compress-Archive -Path (Join-Path $stage '*') -DestinationPath $zip
 $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLowerInvariant()
