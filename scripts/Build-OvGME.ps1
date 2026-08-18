@@ -18,8 +18,8 @@ if (Test-Path $modSrc) {
 }
 $kb = Join-Path $root 'kneeboard/UiLayer'
 if (-not (Test-Path $kb)) { throw "Missing kneeboard PNG folder: $kb — run npm run build:kneeboard first." }
-New-Item -ItemType Directory -Force -Path (Join-Path $pkg "KNEEBOARD/UiLayer") | Out-Null
-Copy-Item (Join-Path $kb '*') (Join-Path $pkg "KNEEBOARD/UiLayer/") -Force
+New-Item -ItemType Directory -Force -Path (Join-Path $pkg 'Kneeboard') | Out-Null
+Copy-Item (Join-Path $kb '*') (Join-Path $pkg 'Kneeboard/') -Force
 $readme = (Get-Content (Join-Path $root 'packaging/ovgme/README.TXT') -Raw) -replace '\{\{VERSION\}\}', $Version
 Set-Content -Path (Join-Path $stage 'README.TXT') -Value $readme -NoNewline
 Set-Content -Path (Join-Path $stage 'VERSION.TXT') -Value $Version -NoNewline
