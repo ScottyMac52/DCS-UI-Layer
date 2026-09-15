@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "aircraft": "UiLayer",
   "profiles": {
-    "vkb-f14-gunfighter": "src/Config/Input/UiLayer/joystick/ VKBSim Gunfighter F14   {2D5CEC70-5189-11f1-8001-444553540000}.diff.lua",
+    "vkb-f14-gunfighter": "src/Config/Input/UiLayer/joystick/VKBSim Gunfighter F14 {2D5CEC70-5189-11f1-8001-444553540000}.diff.lua",
     "ava-base-f16c": "src/Config/Input/UiLayer/joystick/Ava [R] Viper {F77212B0-00A8-11f1-8001-444553540000}.diff.lua",
     "tm-mfd-3": "src/Config/Input/UiLayer/joystick/F16 MFD 3 {C5BE49A0-2342-11ee-8001-444553540000}.diff.lua",
     "moza-ab9-hornet-grip": "src/Config/Input/UiLayer/joystick/MOZA AB9 FFB Base {71DA6210-432E-11f1-8001-444553540000}.diff.lua",
@@ -12,7 +12,7 @@
     {
       "file": "01-VKB-F14-GUNFIGHTER",
       "deviceId": "vkb-f14-gunfighter",
-      "title": " VKBSim Gunfighter F14",
+      "title": "VKBSim Gunfighter F14",
       "kicker": "SCAFFOLD DRAFT",
       "_comment": "labels default to the imported DCS command name and remain editable; deviceLabel contains the canonical DCS-Common hardware label. keep callout IDs in sync with controls. You can also set \"label\" on a controls entry.",
       "labels": {
@@ -32,7 +32,7 @@
         {
           "id": "VKB_F14_BTN7",
           "file": "01-VKB-F14-GUNFIGHTER-VKB-F14-BTN7",
-          "title": " VKBSim Gunfighter F14 • VKB_F14_BTN7",
+          "title": "VKBSim Gunfighter F14 • VKB_F14_BTN7",
           "activators": [
             "VKB_F14_BTN7"
           ],
@@ -716,7 +716,7 @@
     "VKB_F14_BTN7": [
       {
         "nativeName": "VKB_F14_BTN7",
-        "device": " VKBSim Gunfighter F14   {2D5CEC70-5189-11f1-8001-444553540000}",
+        "device": "VKBSim Gunfighter F14 {2D5CEC70-5189-11f1-8001-444553540000}",
         "key": "JOY_BTN7",
         "mode": "hold"
       }
