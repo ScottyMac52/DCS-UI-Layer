@@ -1,22 +1,20 @@
-# DCS-UiLayer-Components
+# DCS-UI-Layer (retired)
 
-Scaffolded by **DCS Input Profile Importer** (DCS-Common).
+> [!IMPORTANT]
+> This standalone consumer and OVGME package are retired. The repository is preserved as a read-only historical archive and should not receive new features or releases.
 
-| Identity | Value |
-| --- | --- |
-| Display name | UiLayer |
-| DCS input module | `UiLayer` |
-| Kneeboard folder | Saved Games `Kneeboard` root |
+## Supported architecture
 
-## Local build
+[DCS-Common](https://github.com/ScottyMac52/DCS-Common) now owns the definitive UI Layer catalog, shared profiles, modifiers, hardware mappings, overlays, and editing workflow.
 
-```bash
-npm ci
-export DCS_COMMON_ROOT=/path/to/DCS-Common   # or checkout at .dcs-common
-npm run build:kneeboard
-npm run test:kneeboard
-```
+Aircraft/component repositories consume DCS-Common during their builds. Each module package projects only the UI Layer devices, functions, instances, and modifier layers that the module actually utilizes. Do not install this repository's former all-inclusive package alongside those module packages.
 
-Review `SCAFFOLD-REPORT.md` and refine `config/kneeboard.json` before the first release.
+## Historical material
 
-See DCS-Common [consumer-repository-setup.md](https://github.com/ScottyMac52/DCS-Common/blob/main/docs/consumer-repository-setup.md).
+Existing source, tags, releases, and generated artifacts remain available for rollback and historical reference. They are no longer supported distribution artifacts.
+
+For current development and authoring, use:
+
+- [Definitive UI Layer workflow](https://github.com/ScottyMac52/DCS-Common/blob/main/docs/definitive-ui-layer.md)
+- [Shared UI Layer overlays](https://github.com/ScottyMac52/DCS-Common/blob/main/docs/ui-layer-overlays.md)
+- [DCS Input Profile Importer](https://github.com/ScottyMac52/DCS-Common/tree/main/tools/DcsConsumerScaffold)
